@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 # Read the IMDb movies data into a pandas DataFrame
-imdb_movies = pd.read_csv('../data/stripped_imdb_movies_data.csv', index_col="names")
+imdb_movies = pd.read_csv('data/stripped_imdb_movies_data.csv', index_col="names")
 
 # Set the feature names and target names
 feature_names = ['month_num', 'genre_num', 'budget_x', 'country_num']
@@ -19,7 +19,7 @@ regr = LinearRegression()
 regr.fit(imdb_x_vals, imdb_y_vals)
 
 # Load the new movie data for prediction
-new_data = pd.read_csv('../data/new_movie_data.csv', index_col="names")
+new_data = pd.read_csv('data/new_movie_data.csv', index_col="names")
 new_data = new_data[feature_names]  # Keep only the desired features from the new data
 
 # Predict the target values (revenue and score) for the new movie data using the trained model
