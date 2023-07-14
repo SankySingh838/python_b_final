@@ -1,5 +1,6 @@
 from bardapi import Bard
 import pandas as pd
+import gpt4all
 
 bard_token_path = '../bardapi_token.txt'
 
@@ -36,4 +37,4 @@ for index, row in imdb_movies.iterrows():
 
     answers.append(reply)
 
-print(answers)
+    print(answers)
