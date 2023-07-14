@@ -3,7 +3,6 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
-
 imdb_movies = pd.read_csv('data/stripped_imdb_movies_data.csv', index_col="names")
 
 # Set the feature names
@@ -39,6 +38,7 @@ plt.ylabel('Predicted Revenue')
 plt.title('Predicted Revenue for New Movies')
 plt.xticks(rotation=45)
 plt.tight_layout()
+plt.savefig('predicted_revenue.png')  # Save the plot as an image
 plt.show()
 
 # Plot the predicted score
@@ -49,5 +49,5 @@ plt.ylabel('Predicted Score')
 plt.title('Predicted Score for New Movies')
 plt.xticks(rotation=45)
 plt.tight_layout()
+plt.savefig('predicted_score.png')  # Save the plot as an image
 plt.show()
-
