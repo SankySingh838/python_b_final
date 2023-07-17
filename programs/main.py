@@ -10,7 +10,7 @@ imdb_movies = pd.read_csv('data/stripped_imdb_movies_data.csv', index_col="names
 feature_names = ['month_num', 'genre_num', 'budget_x', 'country_num', 'crew_num']
 target_names = ['revenue', 'score']
 
-# Extract the feature values (X) and target values (y) from the IMDb movies data
+# Extract the feature values (X) and tarffget values (y) from the IMDb movies data
 imdb_x_vals = imdb_movies[feature_names].values
 imdb_y_vals = imdb_movies[target_names].values
 
