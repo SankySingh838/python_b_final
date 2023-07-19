@@ -45,12 +45,12 @@ print(testing_answer)
 predicted_revenue = predicted_values[:, 0]
 predicted_score = predicted_values[:, 1]
 
-# rmse = np.sqrt(mean_squared_error(testing_answer, predicted_values))
-# print("Root Mean Squared Error:", rmse)
-#
-#
-# r2 = r2_score(testing_answer, predicted_values)
-# print("R-squared:", r2)
+rmse = np.sqrt(mean_squared_error(testing_answer, predicted_values))
+print("Root Mean Squared Error:", rmse)
+
+
+r2 = r2_score(testing_answer, predicted_values)
+print("R-squared:", r2)
 
 
 # Plot Actual vs. Predicted Revenue
@@ -59,7 +59,7 @@ plt.plot(testing_answer[:, 0], testing_answer[:, 0], color='red')  # Add y = x l
 plt.xlabel('Actual Revenue')
 plt.ylabel('Predicted Revenue')
 plt.title('Actual vs. Predicted Revenue')
-plt.show()
+plt.savefig('actual_vs_predicted_revenue.png')
 
 # Plot Actual vs. Predicted Score
 plt.scatter(testing_answer[:, 1], predicted_score)
@@ -67,5 +67,6 @@ plt.plot(testing_answer[:, 1], testing_answer[:, 1], color='red')  # Add y = x l
 plt.xlabel('Actual Score')
 plt.ylabel('Predicted Score')
 plt.title('Actual vs. Predicted Score')
-plt.show()
+plt.savefig('actual_vs_predicted_score.png')
+
 

@@ -10,7 +10,6 @@ import collections
 # Read the IMDb movies data into a pandas DataFrame
 imdb_movies = pd.read_csv('data/imdb_movies.csv', index_col="names")
 
-
 # Set the feature names and target names
 feature_names = ['month_num', 'orig_lang_num', 'genre_num', 'country_num', 'budget_x']
 target_names = ['revenue', 'score']
@@ -29,10 +28,12 @@ for crew in imdb_movies['crew'].dropna().str.split(','):
 actor_freqs = []
 for crew in imdb_movies['crew'].dropna():
     actor_freq_list = [actor_to_freq[actor] for actor in crew.split(',')]
-    actor_freqs.append(actor_freq_list)
+    arr = np.array(actor_freq_list)
+    arr = arr.reshape((len(arr), 1))
+    actor_freqs.append(arr)
 
 # Add the actor frequencies to the feature set
-imdb_x_vals = np.concatenate((imdb_x_vals, np.array(actor_freqs).reshape(-1, 1)), axis=1)
+imdb_x_vals = np.hstack((imdb_x_vals, actor_freqs))
 
 # Split the data into a training set and a test set
 train_x_vals, test_x_vals, train_y_vals, test_y_vals = train_test_split(
